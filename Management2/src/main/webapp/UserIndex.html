@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Event Management</title>
+    <link rel="stylesheet" href="user_styles.css">
+</head>
+<body>
+    <header>
+        <h1>User Event Management</h1>
+        <nav>
+            <ul>
+                <li><a href="vendor.html">Vendor</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="payment.html">Payment</a></li>
+                <li><a href="guest_list.html">Guest List</a></li>
+                <li><a href="order_status.html">Order Status</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="vendor">
+            <h2>Vendor Management</h2>
+            <form action="/add_vendor" method="POST">
+                <label for="vendor_name">Vendor Name:</label>
+                <input type="text" id="vendor_name" name="vendor_name" required>
+                <label for="vendor_details">Vendor Details:</label>
+                <textarea id="vendor_details" name="vendor_details" required></textarea>
+                <button type="submit">Add Vendor</button>
+            </form>
+        </section>
+
+        <section id="cart">
+            <h2>Your Cart</h2>
+            <div id="cart-items">
+            </div>
+            <button id="cancel">Cancel All</button>
+        </section>
+
+        <section id="payment">
+            <h2>Payment</h2>
+            <form action="/process_payment" method="POST">
+                <label for="total_amount">Total Amount:</label>
+                <input type="text" id="total_amount" name="total_amount" readonly>
+                <label for="payment_method">Payment Method:</label>
+                <select id="payment_method" name="payment_method">
+                    <option value="credit_card">Credit Card</option>
+                    <option value="paypal">PayPal</option>
+                </select>
+                <button type="submit">Proceed to Pay</button>
+            </form>
+        </section>
+
+        <section id="guest_list">
+            <h2>Guest List</h2>
+            <ul id="guest-list">
+            </ul>
+        </section>
+
+        <section id="order_status">
+            <h2>Order Status</h2>
+            <form action="/check_status" method="GET">
+                <label for="order_id">Order ID:</label>
+                <input type="text" id="order_id" name="order_id" required>
+                <button type="submit">Check Status</button>
+            </form>
+            <div id="status-result">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 User Event Management System</p>
+    </footer>
+
+    <script src="user_script.js"></script>
+</body>
+</html>
